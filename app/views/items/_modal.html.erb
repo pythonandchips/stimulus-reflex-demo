@@ -1,0 +1,43 @@
+<div class="modal is-active">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <%= form_with model: item, url: "", class: "modal-card-body" do |form| %>
+      <div class="field">
+        <%= form.label :description, class: "label" %>
+        <div class="control">
+          <%= form.text_field :description, class: "input" %>
+        </div>
+        <% if invoice.errors.key?(:description) %>
+          <p class="help is-danger"><%= invoice.errors.full_messages_for(:description).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= form.label :price, class: "label" %>
+        <div class="control">
+          <%= form.number_field :price, class: "input" %>
+        </div>
+        <% if invoice.errors.key?(:price) %>
+          <p class="help is-danger"><%= invoice.errors.full_messages_for(:price).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= form.label :quantity, class: "label" %>
+        <div class="control">
+          <%= form.number_field :quantity, class: "input" %>
+        </div>
+        <% if invoice.errors.key?(:quantity) %>
+          <p class="help is-danger"><%= invoice.errors.full_messages_for(:quantity).join(", ") %></p>
+        <% end %>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <%= form.button(
+            "Create item",
+            class: "button is-link",
+          ) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>

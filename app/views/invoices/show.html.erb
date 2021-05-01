@@ -1,0 +1,36 @@
+<h1 class="title">Invoice <%= @invoice.reference %></h1>
+
+<div id="invoice_headers" class="breadcrumb has-dot-separator is-large">
+  <ul>
+    <li><button class="button mr-4 is-primary">Draft</button></li>
+    <li><button class="button mx-4">Send Now</button></li>
+  </ul>
+</div>
+
+<div id="invoice_body" class="panel">
+  <div class="panel-block is-flex-direction-column is-align-items-start">
+    <p>
+      <%= @invoice.name %>
+    </p>
+    <p>
+      <%= @invoice.city %>
+    </p>
+    <p>
+      <%= @invoice.county %>
+    </p>
+    <p>
+      <%= @invoice.postcode %>
+    </p>
+    <p>
+      <%= @invoice.email_address %>
+    </p>
+  </div>
+  <%= render partial: "items", locals: { invoice: @invoice } %>
+</div>
+
+<div id="<%= dom_id(@invoice, "invoice_emails") %>" class="panel">
+  <%= render partial: "email_history", locals: { invoice: @invoice } %>
+</div>
+
+<div id="new_item_modal">
+</div>

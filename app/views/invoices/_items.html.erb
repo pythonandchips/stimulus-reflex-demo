@@ -1,0 +1,42 @@
+<div id="invoice_items" class="panel-block">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Net Value</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% invoice.items.each do |item| %>
+        <tr>
+          <td><%= item.description %></td>
+          <td><%= item.price %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.net_value %></td>
+          <td class="block">
+            <%= button_tag(
+              "",
+              class: "button is-danger delete",
+            ) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <td>
+        <%= button_tag(
+          "Add Item",
+          id: "add_item",
+          class: "button",
+        ) %>
+      </td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><%= invoice.total_value %></td>
+      <td>&nbsp;</td>
+    </tfoot>
+  </table>
+</div>

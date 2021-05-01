@@ -1,0 +1,84 @@
+<h1 class="title">New Invoice</h1>
+
+<%= form_with model: @invoice do |form| %>
+  <div class="field">
+    <%= form.label :reference, class: "label" %>
+    <div class="control">
+      <%= form.text_field :reference, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:reference) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:reference).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :dated_on, class: "label" %>
+    <div class="control">
+      <%= form.date_field :dated_on, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:dated_on) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:dated_on).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :contact_id, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= form.select(
+          :contact_id,
+          options_from_collection_for_select(@contacts, 'id', 'name', @contact&.id),
+          { prompt: "Auto-fill address" },
+        ) %>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:name) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:name).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :email_address, class: "label" %>
+    <div class="control">
+      <%= form.email_field :email_address, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:email_address) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:email_address).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :city, class: "label" %>
+    <div class="control">
+      <%= form.text_field :city, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:city) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:city).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :county, class: "label" %>
+    <div class="control">
+      <%= form.text_field :county, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:county) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:county).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= form.label :postcode, class: "label" %>
+    <div class="control">
+      <%= form.text_field :postcode, class: "input" %>
+    </div>
+    <% if @invoice.errors.key?(:postcode) %>
+      <p class="help is-danger"><%= @invoice.errors.full_messages_for(:postcode).join(", ") %></p>
+    <% end %>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.button "Create invoice", class: "button is-link" %>
+    </div>
+  </div>
+<% end %>

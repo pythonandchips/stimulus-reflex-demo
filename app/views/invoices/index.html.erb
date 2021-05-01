@@ -1,0 +1,30 @@
+<h1 class="title">Invoices</h1>
+
+<div id="invoices" class="panel">
+  <table class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>Reference</th>
+        <th>Dated on</th>
+        <th>Contact</th>
+        <th>Total Value</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoices.each do |invoice| %>
+        <tr>
+          <td><%= invoice.reference %></td>
+          <td><%= invoice.dated_on.strftime("%d/%m/%y") %></td>
+          <td><%= invoice.name %></td>
+          <td><%= invoice.total_value %></td>
+          <td>
+            <%= link_to "Show", invoice_path(invoice) %>
+            |
+            <%= link_to "Edit", edit_invoice_path(invoice) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

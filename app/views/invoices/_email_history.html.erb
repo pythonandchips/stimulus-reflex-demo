@@ -1,0 +1,18 @@
+<% if invoice.emails.any? %>
+  <table class="table is-fullwidth">
+    <thead>
+      <th>Email address</th>
+      <th>Status</th>
+      <th>Delivered at</th>
+    </thead>
+    <tbody>
+      <% invoice.emails.each do |email| %>
+        <tr>
+          <td><%= email.sent_to %></td>
+          <td><%= email.status %></td>
+          <td><%= email.delivered_at %></td>
+        </td>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

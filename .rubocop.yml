@@ -1,0 +1,72 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+    - 'config.ru'
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineLength:
+  Max: 105
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'test/**/*'
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*'
+  Max: 15
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/migrate/**/*.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+
+Rails/FilePath:
+  Enabled: true
+  EnforcedStyle: arguments
+
+Rails/ReflectionClassName:
+  Enabled: false
+

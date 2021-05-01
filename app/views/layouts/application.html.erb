@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StimulusReflexDemo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to "Invoice-o-matic", invoices_path, class: "navbar-item" %>
+      </div>
+
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <%= link_to "List", invoices_path, class: "navbar-item" %>
+          <%= link_to "New", new_invoice_path, class: "navbar-item" %>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container my-4">
+      <%= yield %>
+    </div>
+  </body>
+</html>
