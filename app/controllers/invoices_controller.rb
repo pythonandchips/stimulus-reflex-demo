@@ -69,7 +69,7 @@ class InvoicesController < ApplicationController
   end
 
   def contact_id
-    params[:contact_id]
+    params.dig(:invoice, :contact_id) || params[:contact_id]
   end
 
   def load_contacts
