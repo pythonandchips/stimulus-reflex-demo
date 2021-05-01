@@ -20,6 +20,11 @@
             <%= button_tag(
               "",
               class: "button is-danger delete",
+              data: {
+                invoice_item: item.id,
+                controller: "items",
+                action: "click->items#remove"
+              }
             ) %>
           </td>
         </tr>

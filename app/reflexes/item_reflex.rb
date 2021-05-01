@@ -22,6 +22,28 @@ class ItemReflex < ApplicationReflex
 
     invoice.items.create!(item_params)
 
+    render_items(invoice)
+    close
+  end
+
+  def delete
+    invoice = Invoice.find(params[:id])
+
+    invoice_item = invoice.items.find(element[:data_invoice_item])
+
+    sleep(2)
+    invoice_item.destroy
+
+    render_items(invoice)
+  end
+
+  def close
+    morph("#new_item_modal", "")
+  end
+
+  private
+
+  def render_items(invoice)
     morph(
       "#invoice_items",
       render(
@@ -31,14 +53,7 @@ class ItemReflex < ApplicationReflex
         }
       )
     )
-    close
   end
-
-  def close
-    morph("#new_item_modal", "")
-  end
-
-  private
 
   def item_params
     params.require(:item).permit(:description, :quantity, :price)
