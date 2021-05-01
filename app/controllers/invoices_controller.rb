@@ -45,6 +45,12 @@ class InvoicesController < ApplicationController
       )
     end
     @invoice = Invoice.find(params[:id])
+
+    if params[:error].present?
+      flash[:error] = params[:error]
+    end
+
+    render layout: false if @stimulus_reflex
   end
 
   def update
