@@ -28,7 +28,8 @@
           options_from_collection_for_select(@contacts, 'id', 'name', @contact&.id),
           { prompt: "Auto-fill address" },
           data: {
-            reflex: "change->Invoices#contact_selected"
+            reflex: "change->Invoices#contact_selected",
+            reflex_root: "form"
           }
         ) %>
       </div>

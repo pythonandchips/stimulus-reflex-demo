@@ -18,6 +18,8 @@ class InvoicesController < ApplicationController
       )
     end
     @invoice = Invoice.new(new_invoice_params)
+
+    render layout: false if @stimulus_reflex
   end
 
   def create
