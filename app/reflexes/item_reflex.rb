@@ -16,4 +16,8 @@ class ItemReflex < ApplicationReflex
       )
     )
   end
+
+  def close
+    morph("#new_item_modal", "")
+  end
 end
